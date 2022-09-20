@@ -1,0 +1,18 @@
+﻿@model TarefaModel
+@{
+	ViewData["Title"] = "Adicionar Tarefa";
+}
+
+
+<div class="text-center" >
+    <h3 class="mb-4 display-5">Adicionar Tarefa</h3>
+	<form asp-controller="Tarefa" asp-action="Criar" method="post">
+      <div class="mb-3">
+        <label for="inputTarefa" class="form-label">Descrição da Tarefa</label>
+        <input type="text" asp-for="Tarefa" class="form-control" id="inputTarefa">
+        <span asp-for-validation="Tarefa"></span>
+      </div>
+      <button type="submit" class="btn  btn-primary">Adicionar Tarefa</button>
+      <a role="button" class="btn  btn-secondary" asp-controller="Tarefa" asp-action="Index">Voltar</a>
+    </form>
+</div>
