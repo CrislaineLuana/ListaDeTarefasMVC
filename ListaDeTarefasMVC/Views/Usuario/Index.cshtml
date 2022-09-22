@@ -1,0 +1,68 @@
+﻿@model List<UsuarioModel>
+
+@{
+	ViewData["Title"] = "Lista de usuários";
+}
+
+<h3 class="mb-4 display-5"><b>Lista de usuários</b></h3>
+<a class="btn btn-success mb-4" asp-controller="Tarefa" asp-action="Criar">Adicionar novo usuário</a>
+
+@if(TempData["MensagemSucesso"] != null){
+    <div class="alert alert-success" role="alert">
+      @TempData["MensagemSucesso"]
+    </div>
+}
+    
+@if(TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["MensagemErro"]
+    </div>
+}
+
+
+<div class="text-center">
+    <table id="table-usuarios" class="table table-dark table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Login</th>
+          <th scope="col">E-mail</th>
+          <th scope="col">Perfil</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+            @if(Model != null && Model.Any())
+            {
+                @foreach(var usuario in Model)
+                {
+                    <tr>
+                      <td>@usuario.Nome</td>
+                      <td>@usuario.Login</td>
+                      <td>@usuario.Email</td>
+                      <td>@usuario.Perfil</td>
+                      <td>
+                          <a role="button" class="btn btn-warning " asp-controller="Usuario" asp-action="Editar" asp-route-id="@usuario.Id" >Editar</a>
+                          <a href="javascript:" class="btn btn-danger btn-deletar-contato" tarefa-id="@usuario.Id" >Deletar</a>  
+                      </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr >
+                    <td colspan="3">
+                        Não possui usuários registrados!
+                    </td>
+                </tr>
+            }
+      </tbody>
+    </table>
+
+
+    <div class="modal usuarioExclusao" id="modalUsuarioExclusao" tabindex="-1">
+    </div>
+
+
+</div>

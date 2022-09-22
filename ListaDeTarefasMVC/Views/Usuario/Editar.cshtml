@@ -1,0 +1,48 @@
+﻿@using ListaDeTarefasMVC.Enums
+@model UsuarioModel
+
+@{
+	ViewData["Title"] = "Editar Usuário";
+}
+
+<div class="" >
+    <h3 class="mb-4 display-5"><b>Editar usuário</b></h3>
+	<form asp-controller="Usuario" asp-action="Editar" method="post">
+        <input type="hidden" asp-for="Id"/>
+
+      <div class="mb-3">
+        <label for="inputNome" class="form-label">Nome:</label>
+        <input type="text" asp-for="Nome" class="form-control" id="inputTarefa">
+        <span asp-validation-for="Nome" ></span>
+      </div>
+
+      <div class="mb-3">
+        <label for="inputLogin" class="form-label">Login:</label>
+        <input type="text" asp-for="Login" class="form-control" id="inputTarefa">
+        <span asp-validation-for="Login" ></span>
+      </div>
+
+       <div class="mb-3">
+        <label for="inputLogin" class="form-label">E-mail:</label>
+        <input type="email" asp-for="Email" class="form-control" id="inputTarefa">
+        <span asp-validation-for="Email" ></span>
+      </div>
+
+      <div class="mb-3">
+        <label for="inputPerfil" class="form-label">Perfil:</label>  
+        <select asp-for="Perfil" class="form-control">
+            <option value="">Selecione um perfil!</option>
+            <option value="@PerfilUsuario.Administrador">Administrador</option>
+            <option value="@PerfilUsuario.Padrao">Padrão</option>
+        </select>
+
+        <span asp-validation-for="Perfil" ></span>
+      </div>
+
+
+
+
+      <button type="submit" class="btn btn-primary ">Editar Usuário</button>
+      <a role="button" class="btn btn-secondary " asp-controller="Usuario" asp-action="Index">Voltar</a>
+    </form>
+</div>

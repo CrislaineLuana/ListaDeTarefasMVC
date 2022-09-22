@@ -46,6 +46,7 @@ namespace ListaDeTarefasMVC.Controllers
                 if(tarefa != null)
                 {
                     _tarefaRepositorio.Deletar(tarefa);
+                    TempData["MensagemSucesso"] = $"Sua tarefa foi deletada com sucesso!";
                     return RedirectToAction("Index");
                 }
                 TempData["MensagemErro"] = $"Ocorreu um erro ao tentar deletar a sua tarefa.";
@@ -71,7 +72,7 @@ namespace ListaDeTarefasMVC.Controllers
                 {
                     tarefaModel.DataCriacao = DateTime.Now;
                     TarefaModel tarefa = _tarefaRepositorio.CriarTarefa(tarefaModel);
-                    TempData["MensagemSucesso"] = $"Sua mensagem foi adicionada com sucesso!";
+                    TempData["MensagemSucesso"] = $"Sua tarefa foi adicionada com sucesso!";
                     return RedirectToAction("Index");
                 }
 
@@ -94,6 +95,7 @@ namespace ListaDeTarefasMVC.Controllers
                 if (ModelState.IsValid)
                 {
                     _tarefaRepositorio.Editar(tarefaModel);
+                    TempData["MensagemSucesso"] = $"Sua tarefa foi editada com sucesso!";
                     return RedirectToAction("Index");
                 }
 

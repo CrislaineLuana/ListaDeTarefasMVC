@@ -10,6 +10,6 @@ namespace ListaDeTarefasMVC.Data
         }
 
         public DbSet<TarefaModel> Tarefas { get; set; }
-
+        public DbSet<UsuarioModel> Usuario  { get; set; }
     }
 }
