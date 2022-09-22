@@ -30,6 +30,13 @@ namespace ListaDeTarefasMVC.Repositorio
             return tarefa;
         }
 
+        public bool Deletar(TarefaModel tarefa)
+        {
+            _dbContext.Tarefas.Remove(tarefa);
+            _dbContext.SaveChanges();
+            return true;
+        }
+
         public TarefaModel Editar(TarefaModel tarefa)
         {
             TarefaModel tarefaBD = BuscarPorId(tarefa.Id);

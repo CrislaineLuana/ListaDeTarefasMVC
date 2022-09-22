@@ -12,9 +12,9 @@ $(document).ready(function () {
             type: 'GET',
             url: '/Tarefa/ConfirmarExclusao/' + tarefaId,
             success: function (result) {
-                $('#tarefaExclusao').html(result);
-                $('#modalTarefaExclusao').modal();
-
+              
+                $('.tarefaExclusao').html(result);
+                $('#modalTarefaExclusao').modal('show');
             }
         });
     });

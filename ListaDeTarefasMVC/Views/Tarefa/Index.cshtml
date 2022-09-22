@@ -4,7 +4,7 @@
 }
 
 
-<h3 class="mb-4 display-5">Lista de Tarefas</h3>
+<h3 class="mb-4 display-5"><b>Lista de Tarefas</b></h3>
 <a class="btn btn-success mb-4" asp-controller="Tarefa" asp-action="Criar">Adicionar nova tarefa</a>
 
 <div class="text-center">
@@ -33,8 +33,8 @@
             }
             else
             {
-                <tr>
-                    <td>
+                <tr >
+                    <td colspan="3">
                         Não possui tarefas registradas!
                     </td>
                 </tr>
@@ -43,24 +43,7 @@
     </table>
 
 
-    <div class="modal" id="modalTarefaExclusao" tabindex="-1">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Confirmação Exclusão</h5>
-            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
-                <span area-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div id="tarefaExclusao"></div>
-          </div>
-          <div class="modal-footer">
-            <a role="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</a>
-            <button type="button" class="btn btn-danger">Deletar</button>
-          </div>
-        </div>
-      </div>
+    <div class="modal tarefaExclusao" id="modalTarefaExclusao" tabindex="-1">
     </div>
 
 

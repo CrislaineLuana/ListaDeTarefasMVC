@@ -38,6 +38,28 @@ namespace ListaDeTarefasMVC.Controllers
             return PartialView("_ConfirmarExclusao",tarefa);
         }
 
+        public IActionResult Deletar(int id)
+        {
+            try
+            {
+                TarefaModel tarefa = _tarefaRepositorio.BuscarPorId(id);
+                if(tarefa != null)
+                {
+                    _tarefaRepositorio.Deletar(tarefa);
+                    return RedirectToAction("Index");
+                }
+                TempData["MensagemErro"] = $"Ocorreu um erro ao tentar deletar a sua tarefa.";
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro ao tentar deletar a sua tarefa. Detalha erro: {ex.Message}";
+                return RedirectToAction("Index");
+            }
+
+        }
+
+
         //Métodos Post
         
         [HttpPost]
