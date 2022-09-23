@@ -8,6 +8,7 @@ $(document).ready(function () {
     getDatatable('#table-tarefas');
     getDatatable('#table-usuarios');
 
+
     setTimeout(function () {
         $('.alert').fadeOut("slow", function () {
             $(this).alert('close');
@@ -15,7 +16,8 @@ $(document).ready(function () {
     }, 3000)
 
 
-    $('.btn-deletar-contato').click(function () {
+
+    $('.btn-deletar-tarefa').click(function () {
         var tarefaId = $(this).attr('tarefa-id');
     $.ajax({
         type: 'GET',

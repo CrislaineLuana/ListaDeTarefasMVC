@@ -31,12 +31,17 @@ namespace ListaDeTarefasMVC.Repositorio
 
         public UsuarioModel CriarUsuario(UsuarioModel usuario)
         {
-            throw new NotImplementedException();
+            _bancoContext.Usuario.Add(usuario);
+            _bancoContext.SaveChanges();
+            return usuario; 
         }
 
         public bool Deletar(UsuarioModel usuario)
         {
-            throw new NotImplementedException();
+            _bancoContext.Usuario.Remove(usuario);
+            _bancoContext.SaveChanges();
+
+            return true;
         }
 
         public UsuarioModel Editar(UsuarioModel usuario)

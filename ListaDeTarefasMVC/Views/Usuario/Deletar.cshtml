@@ -1,0 +1,22 @@
+﻿@using ListaDeTarefasMVC.Enums
+@model UsuarioModel
+
+@{
+	ViewData["Title"] = "Deletar Usuário";
+}
+
+<div class="" >
+ 
+	
+	<div class="text-center  mb-5" >
+		<h3 class="mb-4 "><b>Tem certeza que deseja deletar o usuário abaixo?</b></h3>
+		<hr />
+		<h2> @Model.Nome</h2>
+		<h2> @Model.Email</h2>
+		<hr />
+	</div>
+
+	<a role="button" class="btn-secondary btn btn-block" asp-controller="Usuario" asp-action="Index" >Cancelar Exclusão</a>
+	<a role="button" class="btn-danger btn btn-block" asp-controller="Usuario" asp-route-id="@Model.Id"  asp-action="Deletar" >Confirmar Exclusão</a>
+
+</div>

@@ -32,9 +32,9 @@ namespace ListaDeTarefasMVC.Controllers
             return View(tarefa);
         }
 
-        public IActionResult ConfirmarExclusao(int id)
+        public IActionResult ConfirmarExclusao(int Id)
         {
-            TarefaModel tarefa = _tarefaRepositorio.BuscarPorId(id);
+            TarefaModel tarefa = _tarefaRepositorio.BuscarPorId(Id);
             return PartialView("_ConfirmarExclusao",tarefa);
         }
 
