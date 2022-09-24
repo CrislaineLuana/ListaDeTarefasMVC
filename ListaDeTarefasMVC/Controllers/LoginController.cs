@@ -1,4 +1,5 @@
-﻿using ListaDeTarefasMVC.Models;
+﻿using ListaDeTarefasMVC.Helper;
+using ListaDeTarefasMVC.Models;
 using ListaDeTarefasMVC.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,15 +9,24 @@ namespace ListaDeTarefasMVC.Controllers
     {
         private readonly IUsuarioRepositorio _usuarioRepositorio;
         private readonly ILoginRepositorio _loginRepositorio;
-        public LoginController(IUsuarioRepositorio usuarioRepositorio, ILoginRepositorio loginRepositorio)
+        private readonly ISessao _sessao;
+        public LoginController(IUsuarioRepositorio usuarioRepositorio, ILoginRepositorio loginRepositorio, ISessao sessao)
         {
             _usuarioRepositorio = usuarioRepositorio;
             _loginRepositorio = loginRepositorio;
+            _sessao = sessao;
         }
 
         public IActionResult Index()
         {
+            if (_sessao.BuscarSessaoDoUsuario() != null) return RedirectToAction("Index", "Home");
             return View();
+        }
+
+        public IActionResult Sair()
+        {
+            _sessao.RemoverSessaoDoUsuario();
+            return RedirectToAction("Index", "Login");  
         }
 
         [HttpPost]
@@ -31,6 +41,7 @@ namespace ListaDeTarefasMVC.Controllers
                     {
                         if (usuario.SenhaValida(loginModel.Senha))
                         {
+                            _sessao.CriarSessaoDoUsuario(usuario);
                             return RedirectToAction("Index", "Home");
                         }
                     }
