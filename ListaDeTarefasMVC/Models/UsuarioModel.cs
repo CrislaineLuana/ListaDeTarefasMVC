@@ -17,5 +17,11 @@ namespace ListaDeTarefasMVC.Models
         public string Senha { get; set; }
         [Required(ErrorMessage = "Selecione o Perfil!")]
         public PerfilUsuario Perfil { get; set; }
+
+
+        public bool SenhaValida(string senha)
+        {
+            return Senha == senha;
+        }
     }
 }
