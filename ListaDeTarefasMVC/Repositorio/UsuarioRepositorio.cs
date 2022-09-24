@@ -36,8 +36,10 @@ namespace ListaDeTarefasMVC.Repositorio
             return usuario; 
         }
 
-        public bool Deletar(UsuarioModel usuario)
+        public bool Deletar(int id)
         {
+            UsuarioModel usuario = BuscarPorId(id);
+
             _bancoContext.Usuario.Remove(usuario);
             _bancoContext.SaveChanges();
 

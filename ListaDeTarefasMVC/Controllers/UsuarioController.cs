@@ -45,7 +45,7 @@ namespace ListaDeTarefasMVC.Controllers
                 if (ModelState.IsValid)
                 {
                     _usuarioRepositorio.CriarUsuario(usuario);
-                    TempData["MensagemSucesso"] = $"O usuário foi cri com sucesso!";
+                    TempData["MensagemSucesso"] = $"O usuário foi criado com sucesso!";
                     return RedirectToAction("Index");
                 }
 
@@ -60,15 +60,14 @@ namespace ListaDeTarefasMVC.Controllers
             
         }
 
-        [HttpPost]
-        public IActionResult Deletar(UsuarioModel usuario)
+        public IActionResult Apagar(int Id)
         {
             try
             {
 
-                    _usuarioRepositorio.Deletar(usuario);
-                    TempData["MensagemSucesso"] = $"O usuário foi deletaado com sucesso!";
-                    return RedirectToAction("index");
+                    _usuarioRepositorio.Deletar(Id);
+                    TempData["MensagemSucesso"] = $"O usuário foi deletado com sucesso!";
+                    return RedirectToAction("Index", "Usuario");
 
 
             }catch(Exception ex)

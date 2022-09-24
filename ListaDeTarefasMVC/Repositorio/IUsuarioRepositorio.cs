@@ -7,7 +7,7 @@ namespace ListaDeTarefasMVC.Repositorio
         List<UsuarioModel> buscarTodos();
         UsuarioModel CriarUsuario(UsuarioModel usuario);
         UsuarioModel BuscarPorId(int id);
-        bool Deletar(UsuarioModel usuario);
+        bool Deletar(int id);
         UsuarioModel Editar(UsuarioModel usuario);
 
     }
