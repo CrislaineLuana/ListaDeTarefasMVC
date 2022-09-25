@@ -5,7 +5,7 @@
 }
 
 <h3 class="mb-4 display-5"><b>Lista de usuários</b></h3>
-<a class="btn btn-success mb-4" asp-controller="Usuario" asp-action="Criar">Adicionar novo usuário</a>
+<a class="btn btn-success mb-4" asp-controller="Usuario" asp-action="Criar"><i class="bi bi-plus-circle"></i> Adicionar novo usuário</a>
 
 @if(TempData["MensagemSucesso"] != null){
     <div class="alert alert-success" role="alert">
@@ -43,8 +43,9 @@
                       <td>@usuario.Email</td>
                       <td>@usuario.Perfil</td>
                       <td>
-                          <a role="button" class="btn btn-warning " asp-controller="Usuario" asp-action="Editar" asp-route-id="@usuario.Id" >Editar</a>
-                          <a role="button" class="btn btn-danger " asp-controller="Usuario" asp-action="Deletar" asp-route-id="@usuario.Id" >Deletar</a>
+                          <a role="button" class="btn btn-warning " asp-controller="Usuario" asp-action="Editar" asp-route-id="@usuario.Id" ><i class="bi bi-pencil"></i> Editar</a>
+                          <a role="button" class="btn btn-danger " asp-controller="Usuario" asp-action="Deletar" asp-route-id="@usuario.Id" ><i class="bi bi-x-circle"></i>
+ Deletar</a>
                       </td>
                     </tr>
                 }

@@ -18,15 +18,16 @@
     </div>
 }
 
-
-<form asp-action="Entrar" asp-controller="Login" method="post" > 
-      <div class="mb-3">
-        <label for="InputEmail1" class="form-label">Login:</label>
-        <input type="text" asp-for="Login" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      </div>
-      <div class="mb-3">
-        <label for="Password" class="form-label">Senha:</label>
-        <input type="password" asp-for="Senha"  class="form-control" id="exampleInputPassword1">
-      </div>
-      <button type="submit" class="btn btn-primary w-100">Entrar</button>
-</form>
+<div class="login-content">
+    <form asp-action="Entrar" asp-controller="Login" method="post" > 
+          <div class="mb-3">
+            <label for="InputEmail1" class="form-label">Login:</label>
+            <input type="text" asp-for="Login" class="form-control btn-style" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="Password" class="form-label ">Senha:</label>
+            <input type="password" asp-for="Senha"  class="form-control btn-style" id="exampleInputPassword1">
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Entrar</button>
+    </form>
+</div>
