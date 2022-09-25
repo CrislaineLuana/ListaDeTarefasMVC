@@ -31,6 +31,7 @@ namespace ListaDeTarefasMVC.Repositorio
 
         public UsuarioModel CriarUsuario(UsuarioModel usuario)
         {
+            usuario.setSenhaHash();
             _bancoContext.Usuario.Add(usuario);
             _bancoContext.SaveChanges();
             return usuario; 

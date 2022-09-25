@@ -1,9 +1,11 @@
-﻿using ListaDeTarefasMVC.Models;
+﻿using ListaDeTarefasMVC.Filters;
+using ListaDeTarefasMVC.Models;
 using ListaDeTarefasMVC.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ListaDeTarefasMVC.Controllers
 {
+    [PaginaParaUsuarioLogado]
     public class TarefaController : Controller
     {
         private readonly ITarefaRepositorio _tarefaRepositorio;

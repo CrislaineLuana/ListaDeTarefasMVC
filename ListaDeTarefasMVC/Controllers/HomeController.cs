@@ -1,9 +1,11 @@
-﻿using ListaDeTarefasMVC.Models;
+﻿using ListaDeTarefasMVC.Filters;
+using ListaDeTarefasMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace ListaDeTarefasMVC.Controllers
 {
+    [PaginaParaUsuarioLogado]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -18,7 +20,7 @@ namespace ListaDeTarefasMVC.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult SemAcesso()
         {
             return View();
         }

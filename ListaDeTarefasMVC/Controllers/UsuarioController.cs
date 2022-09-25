@@ -1,9 +1,12 @@
-﻿using ListaDeTarefasMVC.Models;
+﻿using ListaDeTarefasMVC.Filters;
+using ListaDeTarefasMVC.Models;
 using ListaDeTarefasMVC.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ListaDeTarefasMVC.Controllers
 {
+    [PaginaParaUsuarioLogado]
+    [PaginaUsuarioLogadoAdministrador]
     public class UsuarioController : Controller
     {
         private readonly IUsuarioRepositorio _usuarioRepositorio;
