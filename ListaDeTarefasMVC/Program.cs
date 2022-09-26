@@ -16,6 +16,7 @@ builder.Services.AddScoped<ITarefaRepositorio, TarefaRepositorio>();
 builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 builder.Services.AddScoped<ILoginRepositorio, LoginRepositorio>();
 builder.Services.AddScoped<ISessao, Sessao>();
+builder.Services.AddScoped<IEmail, Email>();
 
 builder.Services.AddSession(options =>
 {

@@ -39,6 +39,8 @@ namespace ListaDeTarefasMVC.Controllers
             return View(usuario);
         }
 
+
+
         [HttpPost]
         public IActionResult Criar(UsuarioModel usuario)
             {

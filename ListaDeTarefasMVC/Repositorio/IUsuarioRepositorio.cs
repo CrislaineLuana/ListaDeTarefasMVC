@@ -10,5 +10,7 @@ namespace ListaDeTarefasMVC.Repositorio
         bool Deletar(int id);
         UsuarioModel Editar(UsuarioModel usuario);
 
+        UsuarioModel BuscarPorLoginEEmail(string login, string email);
+
     }
 }

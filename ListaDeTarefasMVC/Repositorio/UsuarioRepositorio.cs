@@ -23,6 +23,18 @@ namespace ListaDeTarefasMVC.Repositorio
             return usuario;
         }
 
+        public UsuarioModel BuscarPorLoginEEmail(string login, string email)
+        {
+
+
+            UsuarioModel usuario = _bancoContext.Usuario.FirstOrDefault(x => x.Email.ToUpper() == email.ToUpper() && x.Login.ToUpper() == x.Login.ToUpper()) ;
+
+
+            return usuario;
+
+
+        }
+
         public List<UsuarioModel> buscarTodos()
         {
             List<UsuarioModel> usuarios = _bancoContext.Usuario.ToList();
@@ -46,6 +58,9 @@ namespace ListaDeTarefasMVC.Repositorio
 
             return true;
         }
+
+
+
 
         public UsuarioModel Editar(UsuarioModel usuario)
         {

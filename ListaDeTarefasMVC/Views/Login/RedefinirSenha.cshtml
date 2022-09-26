@@ -1,0 +1,27 @@
+﻿@model RedefinirSenhaModel
+@{
+    Layout = "_LayoutDeslogada";
+	ViewData["Title"] = "Redefinir Senha";
+}
+
+
+<div class="" >
+    <h3 class="mb-4 display-5"><b>Redefinir senha usuário</b></h3>
+	<form asp-controller="Login" asp-action="EnviarLinkParaRedefinirSenha" method="post">
+
+      <div class="mb-3">
+        <label for="inputLogin" class="form-label">Login:</label>
+        <input type="text" asp-for="Login" class="form-control" id="inputTarefa">
+        <span asp-validation-for="Login" ></span>
+      </div>
+
+       <div class="mb-3">
+        <label for="inputLogin" class="form-label">E-mail:</label>
+        <input type="email" asp-for="Email" class="form-control" id="inputTarefa">
+        <span asp-validation-for="Email" ></span>
+      </div>
+
+      <button type="submit" class="btn btn-success mb-3 w-100">Redefinir senha usuário</button>
+      <a role="button" class="btn btn-secondary w-100" asp-controller="Usuario" asp-action="Index"><i class="bi bi-arrow-counterclockwise"></i> Voltar</a>
+    </form>
+</div>
