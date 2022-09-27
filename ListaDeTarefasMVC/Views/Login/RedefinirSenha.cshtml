@@ -4,6 +4,12 @@
 	ViewData["Title"] = "Redefinir Senha";
 }
 
+@if(TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["MensagemErro"]
+    </div>
+}
 
 <div class="" >
     <h3 class="mb-4 display-5"><b>Redefinir senha usuário</b></h3>
