@@ -11,7 +11,23 @@ namespace ListaDeTarefasMVC.Repositorio
             _bancoContext = bancoContext;
         }
 
-        public UsuarioModel BuscarPorId(int id)
+		public UsuarioModel AlterarSenha(AlterarSenhaModel alterarSenhaModel)
+		{
+            UsuarioModel usuarioDB = BuscarPorId(alterarSenhaModel.Id);
+            if (usuarioDB == null) throw new Exception("Houve um erro na atualização da Senha");
+            if (!usuarioDB.SenhaValida(alterarSenhaModel.SenhaAtual)) throw new Exception("Senha atual não confere");
+            if (usuarioDB.SenhaValida(alterarSenhaModel.NovaSenha)) throw new Exception("Nova senha deve ser diferente da senha atual");
+
+            usuarioDB.alterarSenha(alterarSenhaModel.NovaSenha);
+
+            _bancoContext.Usuario.Update(usuarioDB);
+            _bancoContext.SaveChanges();
+
+            return usuarioDB;
+
+        }
+
+		public UsuarioModel BuscarPorId(int id)
         {
             if (id == 0) throw new Exception("Id nulo");
 

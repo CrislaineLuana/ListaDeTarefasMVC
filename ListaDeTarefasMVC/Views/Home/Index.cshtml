@@ -2,7 +2,13 @@
     ViewData["Title"] = "Home Page";
 }
 
+@if(TempData["MensagemSucesso"] != null){
+    <div class="alert alert-success" role="alert">
+      @TempData["MensagemSucesso"]
+    </div>
+}
 <div class="text-center home-content">
+    
     <h1 class="display-4">Controle de Tarefas</h1>
     <p>Organize suas tarefas diárias</p>
 </div>

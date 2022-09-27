@@ -1,4 +1,5 @@
 ﻿using ListaDeTarefasMVC.Filters;
+using ListaDeTarefasMVC.Helper;
 using ListaDeTarefasMVC.Models;
 using ListaDeTarefasMVC.Repositorio;
 using Microsoft.AspNetCore.Mvc;
@@ -10,9 +11,11 @@ namespace ListaDeTarefasMVC.Controllers
     public class UsuarioController : Controller
     {
         private readonly IUsuarioRepositorio _usuarioRepositorio;
-        public UsuarioController(IUsuarioRepositorio usuarioRepositorio)
+
+        public UsuarioController(IUsuarioRepositorio usuarioRepositorio )
         {
             _usuarioRepositorio = usuarioRepositorio;
+            
         }
 
         public IActionResult Index()
@@ -27,6 +30,7 @@ namespace ListaDeTarefasMVC.Controllers
             return View(usuario);
         }
 
+
         public IActionResult Criar()
         {
             return View();
@@ -38,7 +42,6 @@ namespace ListaDeTarefasMVC.Controllers
 
             return View(usuario);
         }
-
 
 
         [HttpPost]

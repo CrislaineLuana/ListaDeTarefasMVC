@@ -30,6 +30,10 @@ namespace ListaDeTarefasMVC.Models
            Senha = Senha.GerarHash();
         }
 
+        public void alterarSenha(string NovaSenha)
+        {
+            Senha = NovaSenha.GerarHash();
+        }
 
         public string GerarNovaSenha()
         {
